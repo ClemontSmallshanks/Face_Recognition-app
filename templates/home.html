@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<p>Welcome! Choose an option:</p>
+<ul>
+    <li><a href="{{ url_for('add_person') }}">Add new person to database</a></li>
+    <li><a href="{{ url_for('recognize_faces') }}">Recognize faces in an image</a></li>
+</ul>
+
+<h3>Admin</h3>
+<form method="POST" action="{{ url_for('reset_database') }}">
+    <button type="submit" style="color:red;">Reset Database</button>
+</form>
+{% endblock %}

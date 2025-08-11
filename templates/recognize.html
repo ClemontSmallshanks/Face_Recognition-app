@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Recognize Faces</h2>
+<form method="POST" enctype="multipart/form-data">
+    Upload image: <input type="file" name="image" required><br><br>
+    <input type="submit" value="Recognize">
+</form>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+{% if image_url %}
+    <h3>Results:</h3>
+    <img src="{{ image_url }}" style="max-width:500px;"><br>
+    <p>Recognized: {{ names|join(', ') }}</p>
+{% endif %}
+{% endblock %}
